@@ -12,9 +12,11 @@ import java.util.Arrays;
 public class DemoApplication {
 
     public static void main(String[] args) {
-		ConfigurableApplicationContext context = SpringApplication.run(DemoApplication.class, args);
-		CityMapper cityMapper = context.getBean(CityMapper.class);
-		System.out.println(cityMapper.findByState("Texas").getName());
+        ConfigurableApplicationContext context = SpringApplication.run(DemoApplication.class, args);
+        CityMapper cityMapper = context.getBean(CityMapper.class);
+        cityMapper.findAllCities().stream().forEach(
+                city -> System.out.println(city)
+        );
     }
 
 }
